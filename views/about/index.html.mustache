@@ -1,3 +1,56 @@
 <p class="lead">
-这是一个运行在 <a href="http://www.raspberrypi.org" target="_blank">Raspberry Pi</a> 上的站点，完全使用 <a href="http://golang.org" target="_blank">Go</a> 编写，由 <a href="https://github.com/bmizerany/pat" target="_blank">pat</a> Routing，模板引擎使用了<a href="https://github.com/hoisie/mustache" target="_blank">mustache</a>。
+这是一个运行在 <a href="http://www.raspberrypi.org" target="_blank">Raspberry Pi</a> & <a href="http://archlinuxarm.org/" target="_blank">Arch Linux ARM</a> 上的站点，完全使用 <a href="http://golang.org" target="_blank">Go</a> 编写，由 <a href="https://github.com/bmizerany/pat" target="_blank">pat</a> Routing，模板引擎使用了<a href="https://github.com/hoisie/mustache" target="_blank">mustache</a>。
 </p>
+
+<hr>
+<br>
+<h4>本站源代码</h4>
+<p>
+源代码托管在Github，你可以到这里获取： <a href="https://github.com/nowa/pi.k17.im">https://github.com/nowa/pi.k17.im</a>
+</p>
+<br>
+
+<h4>拥有你的Pi</h4>
+<p>
+	我身边的朋友有的在<a href="http://cn.element14.com/raspberry-pi" target="_blank">Elemts14</a>购买，有的在<a href="http://item.taobao.com/item.htm?spm=a1z09.5.0.40.hwTKcX&id=17098103381" target="_blank">100mhz</a>这家淘宝店购买。另外，100mhz的亚克力外壳也是不错的选择。
+</p>
+<br>
+
+<h4>为你的Pi安装系统</h4>
+<ul>
+	<li>
+		准备一张至少2G的 SD 卡，从<a href="http://www.raspberrypi.org/downloads" target="_blank">官方下载</a> Rasbian 或者 Arch Linux ARM，然后使用 dd 将 img 写入到 SD 卡。随后插入 SD 卡，为你的 Pi 连上网线，插上 MicroUSB 开始供电后即开机运行。
+	</li>
+	<li>
+		需要注意的是，当我启动了 Arch Linux ARM 后，Pi 不会自动获取到ip。这是因为官方下载的 Arch 存在一个问题，它的 systemd 里的 dhcpcd@eth0.service 的启动命令只是一次获取 ip，如果成功获取或者失败后，dhcpcd都将退出。你需要将 Pi 用 HDMI 线接到电视机或者显示器上，修改该命令，加上 -b 参数，使之在后台运行。
+	</li>
+	<li>
+		网络搞定之后，你可以将你的 Pi 放入家里的弱电箱或者家庭机柜等。使用 SSH 来操作它。
+	</li>
+	<li>
+		记得使用 pacman 来更新你的 Arch
+	</li>
+</ul>
+<br>
+
+<h4>安装Go</h4>
+<p>
+	pacman源里的Go安装后并不能正常运行，你需要获取 Go 的最新源代码并自己编译。或者在你的Mac上交叉编译，将编译后的文件在 Pi 上运行。
+</p>
+<br>
+
+<h4>感谢</h4>
+<p>
+	感谢 <a href="http://weibo.com/hugozhu" target="_blank">@hugozhu</a> 的帮助和资料，大家也可以去<a href="http://go.myalert.info" target="_blank">他的 Pi 站点</a>看下。
+</p>
+<br>
+
+<h4>参考</h4>
+<ul>
+	<li><a href="http://go.myalert.info" target="_blank">When Go meets Raspberry Pi</a></li>
+	<li><a href="http://dave.cheney.net/2012/09/25/installing-go-on-the-raspberry-pi" target="_blank">http://dave.cheney.net/2012/09/25/installing-go-on-the-raspberry-pi</a></li>
+	<li><a href="http://golang.org/doc/install/source" target="_blank">http://golang.org/doc/install/source</a>
+	<li><a href="https://github.com/davecheney/golang-crosscompile" target="_blank">https://github.com/davecheney/golang-crosscompile</a></li>
+	<li><a href="http://dave.cheney.net/2012/09/08/an-introduction-to-cross-compilation-with-go" target="_blank">http://dave.cheney.net/2012/09/08/an-introduction-to-cross-compilation-with-go</a></li>
+</ul>
+
